@@ -28,9 +28,8 @@ jobs:
         run: npm ci
       - name: Create .env file
         run: |
-          echo "VITE_GOOGLE_MAPS_API_KEY=${{ secrets.API_KEY }}" >> .env
-          echo "VITE_GOOGLE_MAP_ID=${{ secrets.MAP_ID }}" >> .env
-          echo "VITE_GOOGLE_MAPS_API_KEY=${{ secrets.API_KEY }}"
+          echo "VITE_GOOGLE_MAPS_API_KEY=${{ secrets.VITE_GOOGLE_MAPS_API_KEY }}" >> .env
+          echo "VITE_GOOGLE_MAP_ID=${{ secrets.VITE_GOOGLE_MAP_ID }}" >> .env
       - name: Build
         run: npm run build
       - name: Upload artifact
