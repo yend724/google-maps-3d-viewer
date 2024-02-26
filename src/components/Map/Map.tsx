@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Wrapper } from '@googlemaps/react-wrapper';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import obj from './book.gltf?url';
+import { ENV } from '../../config/env';
 
 const mapOptions = {
   mapId: import.meta.env.VITE_GOOGLE_MAP_ID,
@@ -41,9 +41,9 @@ const MyMap = () => {
         scene.add(directionalLight);
 
         const loader = new GLTFLoader();
-        loader.load(obj, gltf => {
+        loader.load(`${ENV.BASE_DIR}/assets/book.gltf`, gltf => {
           gltf.scene.scale.set(100, 100, 100);
-          gltf.scene.position.z = 634 / 2;
+          gltf.scene.position.z = 0;
           gltf.scene.rotation.x = (90 * Math.PI) / 180;
           scene.add(gltf.scene);
         });
